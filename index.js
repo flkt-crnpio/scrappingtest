@@ -32,7 +32,7 @@ for (var k = invs.length - 1; k >= 0; k--) {
     .type('input#firstname', invs[k][0])
     .click('#authorSubmitBtn')
     .wait('table#srchResultsList')
-    .inject('js','d3.js')
+    .inject('js','node_modules/d3/dist/d3.js')
     .evaluate(function() {
       //lista para los datos extraidos
       var lista=[];
