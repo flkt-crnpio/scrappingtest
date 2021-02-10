@@ -8,12 +8,20 @@ const d3 = require('d3');
 nightmare = new Nightmare({show:true});
 
 
-const milistaexterna = readFileSync('./milistaexterna.csv', 
+const rows = readFileSync('./milistaexterna.csv', 
   {encoding: 'utf8'}).trim().split('\n');
-console.dir(milistaexterna);
+// console.log(rows);
+// let col = rows.split(',');
+// console.log(col[0])
+// console.log(col[1])
 
+const invs = rows.map(row => {
+  let col = row.split(',');
+  return col;
+})
+console.log(invs)
 
-var invs=[['Hugo','López Gatell'],['Juan','López'],['Pedro','Suárez']]
+// var invs=[['Hugo','López Gatell'],['Juan','López'],['Pedro','Suárez']]
 
 var run = function*() {
 var data_final=[];
