@@ -50,7 +50,7 @@ for (var k = invs.length - 1; k >= 0; k--) {
     data_final.push([invs[k],data]);
 
     let json = JSON.stringify(data_final);
-    fs.writeFileSync("sni_scopus.json",json);
+    writeFileSync("sni_scopus.json",json);
   }
   yield nightmare.end();
   return 0;   
