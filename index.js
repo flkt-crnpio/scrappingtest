@@ -7,18 +7,12 @@ const d3 = require('d3');
 
 nightmare = new Nightmare({show:true});
 
-
-const rows = readFileSync('./milistaexterna.csv', 
-  {encoding: 'utf8'}).trim().split('\n');
-// console.log(rows);
-// let col = rows.split(',');
-// console.log(col[0])
-// console.log(col[1])
-
+// se lee el csv y se separa por filas
+const rows = readFileSync('./milistaexterna.csv', {encoding: 'utf8'}).trim().split('\n');
+// se hace un subarreglo separando por las comas en cada renglon
 const invs = rows.map(row => row.split(','))
 console.log(invs)
 
-// var invs=[['Hugo','López Gatell'],['Juan','López'],['Pedro','Suárez']]
 
 var run = function*() {
 var data_final=[];
@@ -58,9 +52,8 @@ for (var k = invs.length - 1; k >= 0; k--) {
     writeFileSync("sni_scopus.json",json);
   }
   yield nightmare.end();
-  return 0;   
+  return 0;
 }
-
 
 vo(run)(function(err, arreglo){
 
