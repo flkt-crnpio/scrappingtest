@@ -15,10 +15,7 @@ const rows = readFileSync('./milistaexterna.csv',
 // console.log(col[0])
 // console.log(col[1])
 
-const invs = rows.map(row => {
-  let col = row.split(',');
-  return col;
-})
+const invs = rows.map(row => row.split(','))
 console.log(invs)
 
 // var invs=[['Hugo','López Gatell'],['Juan','López'],['Pedro','Suárez']]
