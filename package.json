@@ -19,7 +19,6 @@
   "homepage": "https://github.com/flkt-crnpio/scrappingtest#readme",
   "dependencies": {
     "d3": "^6.5.0",
-    "d3-dsv": "^2.0.0",
     "nightmare": "^3.0.2",
     "vo": "^4.0.2"
   }
