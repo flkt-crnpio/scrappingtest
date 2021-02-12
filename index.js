@@ -33,19 +33,24 @@ const run = function*() {
       .inject('js','node_modules/d3/dist/d3.js')
       .evaluate(function() {
         //lista para los datos extraidos
-        var lista = [];
+        var lista = {};
         d3.select('tr#resultDataRow1').each(function(){
-          let investigador = d3.select(this).select('td.authorResultsNamesCol').select('a').text().trim();
-          let articulos = d3.select(this).select('td.dataCol3').text().trim();
-          let hindex = d3.select(this).select('td.dataCol4').text().trim();
-          let afiliacion = d3.select(this).select('td.dataCol5').text().trim();
-          lista.push([investigador, articulos, hindex, afiliacion]);
+          lista = {
+            "investigador": d3.select(this).select('td.authorResultsNamesCol').select('a').text().trim(),
+            "articulos": d3.select(this).select('td.dataCol3').text().trim(),
+            "hindex": d3.select(this).select('td.dataCol4').text().trim(),
+            "afiliacion": d3.select(this).select('td.dataCol5').text().trim()
+          }
         })
         return lista
       })
 
-      console.log(data);
-      data_final.push([invs[k], data]);
+      // console.log(data);
+      // let obj = {};
+      // let name = invs[k][0]+' '+invs[k][1];
+      // obj[name] = data;
+      // data_final.push(obj);
+      data_final.push(data);
 
       let json = JSON.stringify(data_final);
       writeFileSync("sni_scopus.json", json);
